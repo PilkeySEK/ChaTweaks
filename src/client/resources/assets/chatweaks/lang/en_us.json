@@ -12,6 +12,9 @@
   "text.config.chatweaks-config.option.suffixNest.addSuffixToHistory": "Add suffix to chat history",
   "text.config.chatweaks-config.option.suffixNest.disableSuffixIfPrefix": "Don't apply suffix if prefix is present:",
   "text.config.chatweaks-config.option.suffixNest.disableSuffixIfSuffix": "Don't apply suffix if suffix is present:",
+  "text.config.chatweaks-config.category.filteringNest": "Chat Filter",
+  "text.config.chatweaks-config.option.filteringNest.useFilter": "Filter Messages",
+  "text.config.chatweaks-config.option.filteringNest.filterRegex": "Filter Regex",
   "category.chatweaks.main": "ChaTweaks",
   "key.chatweaks.togglePrefix": "Toggle Prefix",
   "key.chatweaks.toggleSuffix": "Toggle Suffix"

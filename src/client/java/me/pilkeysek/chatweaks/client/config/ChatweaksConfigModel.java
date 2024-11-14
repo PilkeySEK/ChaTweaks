@@ -13,6 +13,8 @@ public class ChatweaksConfigModel {
     public PrefixNest prefixNest = new PrefixNest();
     @Nest
     public SuffixNest suffixNest = new SuffixNest();
+    @Nest
+    public FilteringNest filteringNest = new FilteringNest();
 
     public static class PrefixNest {
         public boolean usePrefix = false;
@@ -27,5 +29,9 @@ public class ChatweaksConfigModel {
         public boolean addSuffixToHistory = true;
         public List<String> disableSuffixIfPrefix = List.of("/");
         public List<String> disableSuffixIfSuffix = List.of();
+    }
+    public static class FilteringNest {
+        public boolean useFilter = false;
+        public String filterRegex = "";
     }
 }
