@@ -1,0 +1,18 @@
+{
+  "text.config.chatweaks-config.title": "ChaTweaks Configuration",
+  "text.config.chatweaks-config.category.prefixNest": "Prefix Configuration",
+  "text.config.chatweaks-config.category.suffixNest": "Suffix Configuration",
+  "text.config.chatweaks-config.option.prefixNest.usePrefix": "Prefix Enabled",
+  "text.config.chatweaks-config.option.prefixNest.prefix": "Prefix Text",
+  "text.config.chatweaks-config.option.prefixNest.addPrefixToHistory": "Add prefix to chat history",
+  "text.config.chatweaks-config.option.prefixNest.disablePrefixIfPrefix": "Don't apply prefix if prefix is present:",
+  "text.config.chatweaks-config.option.prefixNest.disablePrefixIfSuffix": "Don't apply prefix if suffix is present:",
+  "text.config.chatweaks-config.option.suffixNest.useSuffix": "Suffix Enabled",
+  "text.config.chatweaks-config.option.suffixNest.suffix": "Suffix Text",
+  "text.config.chatweaks-config.option.suffixNest.addSuffixToHistory": "Add suffix to chat history",
+  "text.config.chatweaks-config.option.suffixNest.disableSuffixIfPrefix": "Don't apply suffix if prefix is present:",
+  "text.config.chatweaks-config.option.suffixNest.disableSuffixIfSuffix": "Don't apply suffix if suffix is present:",
+  "category.chatweaks.main": "ChaTweaks",
+  "key.chatweaks.togglePrefix": "Toggle Prefix",
+  "key.chatweaks.toggleSuffix": "Toggle Suffix"
+}

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "chatweaks",
+  "version": "${version}",
+  "name": "ChaTweaks",
+  "description": "Many tweaks for your chat",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/chatweaks/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "me.pilkeysek.chatweaks.client.ChatweaksClient"
+    ],
+    "main": [
+      "me.pilkeysek.chatweaks.Chatweaks"
+    ]
+  },
+  "mixins": [
+    "chatweaks.mixins.json",
+    {
+      "config": "chatweaks.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  },
+  "custom": {
+    "modmenu": {
+
+    }
+  }
+}
