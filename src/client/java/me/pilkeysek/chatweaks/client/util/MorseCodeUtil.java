@@ -8,13 +8,13 @@ public class MorseCodeUtil {
     private static final char[] english = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
             'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
             'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
-            ',', '.', '?', ' '};
+            ',', '.', '?', ' ', ' '};
 
     private static final String[] morse = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..",
             ".---", "-.-", ".-..", "--", "-.", "---", ".---.", "--.-", ".-.",
             "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--..", ".----",
             "..---", "...--", "....-", ".....", "-....", "--...", "---..", "----.",
-            "-----", "--..--", ".-.-.-", "..--..", " "};
+            "-----", "--..--", ".-.-.-", "..--..", "/", " "};
 
     private static String extractMorseFromString(String s) {
         StringBuilder morseString = new StringBuilder();
@@ -76,5 +76,18 @@ public class MorseCodeUtil {
             }
         }
         return finalString.toString();
+    }
+    public static String englishToMorse(String engl) {
+        StringBuilder morseString = new StringBuilder();
+        for(Character c : engl.toCharArray()) {
+            for(int i = 0; i < english.length; i++) {
+                if(english[i] == c) {
+                    morseString.append(morse[i]);
+                    morseString.append(' ');
+                    break;
+                }
+            }
+        }
+        return morseString.toString();
     }
 }
