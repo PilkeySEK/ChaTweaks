@@ -7,7 +7,7 @@ To configure the mod, you can execute the `/chatweaks config` command (or click 
 ## Features
 - Highly configurable prefix & suffix
 - Regex Chat filtering
-- [to be added] Type in morse code
+- Type in morse code
 - Decrypt other messages in morse code
 
 ### Request Features
