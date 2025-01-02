@@ -3,6 +3,7 @@ package me.pilkeysek.chatweaks.client;
 import io.wispforest.owo.config.ui.ConfigScreen;
 import me.pilkeysek.chatweaks.client.command.ChatweaksCommand;
 import me.pilkeysek.chatweaks.client.config.ChatweaksConfig;
+import me.pilkeysek.chatweaks.client.util.MorseCodeUtil;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -20,11 +21,11 @@ public class ChatweaksClient implements ClientModInitializer {
     public static KeyBinding togglePrefixKeyBinding;
     public static KeyBinding toggleSuffixKeyBinding;
     public static KeyBinding openConfigKeyBinding;
+    private static KeyBinding toggleMorseCodeTranslationKeyBinding;
 
     @Override
     public void onInitializeClient() {
         registerKeybindings();
-
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while(togglePrefixKeyBinding.wasPressed()) {
                 KeyBindingEvents.togglePrefix(client);
@@ -34,6 +35,12 @@ public class ChatweaksClient implements ClientModInitializer {
             }
             while(openConfigKeyBinding.wasPressed()) {
                 openConfig();
+            }
+            while(toggleMorseCodeTranslationKeyBinding.wasPressed()) {
+                toggleMorseCodeTranslation();
+                assert MinecraftClient.getInstance().player != null;
+                if(ChatweaksClient.config.morseCodeNest.translationEnabled()) MinecraftClient.getInstance().player.sendMessage(Text.literal("Morse Code Translation is now ").formatted(Formatting.AQUA).append(Text.literal("enabled").formatted(Formatting.GREEN)));
+                else MinecraftClient.getInstance().player.sendMessage(Text.literal("Morse Code Translation is now ").formatted(Formatting.AQUA).append(Text.literal("disabled").formatted(Formatting.RED)));
             }
         });
 
@@ -55,12 +62,22 @@ public class ChatweaksClient implements ClientModInitializer {
                  GLFW.GLFW_KEY_Y,
                  "category.chatweaks.main"
          ));
-         openConfigKeyBinding = KeyBindingHelper.registerKeyBinding(new KeyBinding(
-                 "key.chatweaks.openConfig",
-                 InputUtil.Type.KEYSYM,
-                 GLFW.GLFW_KEY_UNKNOWN,
-                 "category.chatweaks.main"
-         ));
+        openConfigKeyBinding = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+                "key.chatweaks.openConfig",
+                InputUtil.Type.KEYSYM,
+                GLFW.GLFW_KEY_UNKNOWN,
+                "category.chatweaks.main"
+        ));
+        toggleMorseCodeTranslationKeyBinding = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+                "key.chatweaks.toggleMorseCodeTranslation",
+                InputUtil.Type.KEYSYM,
+                GLFW.GLFW_KEY_Y,
+                "category.chatweaks.main"
+        ));
+    }
+
+    public static void toggleMorseCodeTranslation() {
+        ChatweaksClient.config.morseCodeNest.translationEnabled(!ChatweaksClient.config.morseCodeNest.translationEnabled());
     }
 
     public static void openConfig() {

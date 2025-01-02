@@ -3,6 +3,7 @@ package me.pilkeysek.chatweaks.client.mixin;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.ref.LocalRef;
 import me.pilkeysek.chatweaks.client.ChatweaksClient;
+import me.pilkeysek.chatweaks.client.util.MorseCodeUtil;
 import net.minecraft.client.gui.hud.ChatHud;
 import net.minecraft.client.gui.hud.MessageIndicator;
 import net.minecraft.network.message.MessageSignatureData;
@@ -27,6 +28,14 @@ public class ChatHudMixin {
                             .withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, oldMessage))
                             .withColor(Formatting.RED)
                             .withItalic(true)));
+            return;
+        }
+        if(ChatweaksClient.config.morseCodeNest.translationEnabled()) {
+            String translatedString = MorseCodeUtil.translateStringFromMorse(messageRef.get().getString());
+            if(!translatedString.trim().isEmpty()) {
+                Formatting color = Formatting.AQUA;
+                messageRef.set(messageRef.get().copy().append(Text.literal(" -> " + translatedString).formatted(color)));
+            }
         }
     }
 }

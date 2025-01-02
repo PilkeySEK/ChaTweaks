@@ -15,7 +15,11 @@
   "text.config.chatweaks-config.category.filteringNest": "Chat Filter",
   "text.config.chatweaks-config.option.filteringNest.useFilter": "Filter Messages",
   "text.config.chatweaks-config.option.filteringNest.filterRegex": "Filter Regex",
+  "text.config.chatweaks-config.category.morseCodeNest": "Morse Code",
+  "text.config.chatweaks-config.option.morseCodeNest.translationEnabled": "Translate incoming morse code messages",
   "category.chatweaks.main": "ChaTweaks",
   "key.chatweaks.togglePrefix": "Toggle Prefix",
-  "key.chatweaks.toggleSuffix": "Toggle Suffix"
+  "key.chatweaks.toggleSuffix": "Toggle Suffix",
+  "key.chatweaks.toggleMorseCodeTranslation": "Toggle Morse Code Translation",
+  "key.chatweaks.openConfig": "Open the config"
 }

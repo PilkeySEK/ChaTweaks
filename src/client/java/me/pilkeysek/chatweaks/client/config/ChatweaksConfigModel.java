@@ -15,6 +15,8 @@ public class ChatweaksConfigModel {
     public SuffixNest suffixNest = new SuffixNest();
     @Nest
     public FilteringNest filteringNest = new FilteringNest();
+    @Nest
+    public MorseCodeNest morseCodeNest = new MorseCodeNest();
 
     public static class PrefixNest {
         public boolean usePrefix = false;
@@ -33,5 +35,8 @@ public class ChatweaksConfigModel {
     public static class FilteringNest {
         public boolean useFilter = false;
         public String filterRegex = "";
+    }
+    public static class MorseCodeNest {
+        public boolean translationEnabled = true;
     }
 }
